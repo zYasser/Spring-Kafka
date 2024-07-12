@@ -1,0 +1,10 @@
+server:
+  port: 0
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group-1
+# this will set the offset as 0 to read message from start
+#      auto-offset-reset: earliest
