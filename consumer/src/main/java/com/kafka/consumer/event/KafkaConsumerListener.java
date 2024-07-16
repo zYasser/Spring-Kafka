@@ -1,19 +1,18 @@
 package com.kafka.consumer.event;
 
+import com.kafka.consumer.dto.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.PartitionOffset;
-import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class KafkaConsumerListener {
     Logger logger = LoggerFactory.getLogger(KafkaConsumerListener.class);
-    @KafkaListener(groupId = "group-1", topics = "kafka")
-    public void consume(String message) {
-        logger.info("Consumer received the message: {}", message);
+    @KafkaListener(groupId = "group-1", topics = "test-topic")
+    public void consume(Customer     customer) {
+        logger.info("Consumer received the message: {}", customer.toString());
     }
 
 
